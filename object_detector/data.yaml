@@ -1,0 +1,14 @@
+path: /Users/lamiayous/Projects/FindMe/object_detector/
+train: data/train/images
+val: data/valid/images
+test: data/test/images
+
+nc: 1
+names: ['cars']
+
+roboflow:
+  workspace: j-devoir
+  project: cars-jvfh2
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/j-devoir/cars-jvfh2/dataset/1
