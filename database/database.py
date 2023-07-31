@@ -11,14 +11,18 @@ client = pymongo.MongoClient("mongodb://localhost:27017/")
 
 # Creating a database
 db = client["FindMe"]
-collection = db["entry"]
+collection = db[currentdatetime]
 
 #Opening file with the unique code
+unique_code = []
+fp = open("/Users/lamiayous/Projects/FindMe/autoencoder/code_img_0.txt", "r")
 
-# uniqueCode = open(r'E\Users\lamiayous\Projects\FindMe\autencoder\', 'r'')
+for code in fp:
+    unique_code.append(code)
 
 # Create data objects
-data_entry1 = {"vehicle": "Car", "encoded": "audi", "date and time": localcurrentdateandtime }
+
+data_entry1 = {"vehicle": "Car", "encoded": [unique_code[0], unique_code[1], unique_code[2]], "date and time": localcurrentdateandtime }
 
 # Insert data into the collection
 collection.insert_one(data_entry1)
