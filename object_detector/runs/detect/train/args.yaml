@@ -1,6 +1,6 @@
 task: detect
 mode: train
-model: yolov8s.pt
+model: yolov8n.pt
 data: data.yaml
 epochs: 25
 patience: 50
@@ -94,4 +94,4 @@ copy_paste: 0.0
 cfg: null
 v5loader: false
 tracker: botsort.yaml
-save_dir: runs/detect/train
+save_dir: runs/detect/train7
