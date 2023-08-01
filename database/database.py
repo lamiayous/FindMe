@@ -17,12 +17,29 @@ collection = db[currentdatetime]
 unique_code = []
 fp = open("/Users/lamiayous/Projects/FindMe/autoencoder/code_img_0.txt", "r")
 
+#storing code into "unique_code" array
 for code in fp:
     unique_code.append(code)
 
+index=0
+
 # Create data objects
+data_entry1 = {"vehicle": "Car", "encoded": [unique_code[index]], "date and time": localcurrentdateandtime }
 
-data_entry1 = {"vehicle": "Car", "encoded": [unique_code[0], unique_code[1], unique_code[2]], "date and time": localcurrentdateandtime }
-
-# Insert data into the collection
+#adding the data object to the collection
 collection.insert_one(data_entry1)
+
+#then get the object id of the entry that has just been entered
+query = {"vehicle": "Car"}
+document = collection.find_one(query)
+
+object_id = document["_id"]
+
+#updating the index
+index = 1
+
+#adding the rest of the unique code into the "encoded" array
+
+while index < len(unique_code):
+    collection.update_one({"_id": object_id}, {"$push": {"encoded": unique_code[index]}})
+    index += 1
