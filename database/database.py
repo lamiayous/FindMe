@@ -30,10 +30,11 @@ data_entry1 = {"vehicle": "Car", "encoded": [unique_code[index]], "date and time
 collection.insert_one(data_entry1)
 
 #then get the object id of the entry that has just been entered
-query = {"vehicle": "Car"}
+query = {"date and time": localcurrentdateandtime}
 document = collection.find_one(query)
 
 object_id = document["_id"]
+print(object_id)
 
 #updating the index
 index = 1
