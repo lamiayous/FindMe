@@ -4,7 +4,7 @@ import os
 from ultralytics import YOLO
 from autoencoder_inference import encoder_code
 from objectdetector_code import ObjectDetector
-    
+
 def main():
     model = YOLO("best.pt")
     parser = argparse.ArgumentParser()
@@ -15,12 +15,16 @@ def main():
     object_detector = ObjectDetector()
     out_object_detector = object_detector.run_inference(img_file)
     result = out_object_detector[0]
+    
+    #extracting name of detected class
     names = model.names
-
     for r in result:
         object_name = names[int(r.boxes.cls)]
 
-    print(object_name)
+    img_filepath = "./imgs/test/" + object_name
+    if os.path.exists(img_filepath) == False:
+        os.makedirs(img_filepath)
+
 
     ######encoder#######
     encoder_code("last.pth")
