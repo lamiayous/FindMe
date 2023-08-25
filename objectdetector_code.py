@@ -10,3 +10,13 @@ class ObjectDetector:
         out = self.model.predict(img_file)[0]
         return out
     
+    def name_of_class(self, results, model):
+        names = model.names
+        for r in results:
+            object_name = names[int(r.boxes.cls)]
+        return object_name
+    
+    def crop_image(self, object_name):
+        img_filepath = "./imgs/test/" + object_name
+        if os.path.exists(img_filepath) == False:
+            os.makedirs(img_filepath)
