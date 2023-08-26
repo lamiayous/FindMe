@@ -8,9 +8,9 @@ import torchvision.transforms as transforms
 import torchvision.datasets as Datasets
 
 class encoder_code:
-    def __init__(self, trained_model):
+    def __init__(self, trained_model, object_name):
     #data loader
-        test_dataset_path = './autoencoder/imgs/fake_test'
+        test_dataset_path = 'imgs/test/'
         transform = transforms.Compose([transforms.Resize((128, 128)), transforms.ToTensor()])
         test_dataset = Datasets.ImageFolder(root = test_dataset_path, transform = transform)
         test_loader = torch.utils.data.DataLoader(dataset = test_dataset, batch_size = 4, shuffle=True)

@@ -23,7 +23,7 @@ def main():
     object_detector.crop_image(object_name, img_file, result) #cropping detected image
 
     ####### Encoder #######
-    encoder_code("last.pth")
+    encoder_code("last.pth", object_name)
 
 if __name__ == "__main__":
     main()
