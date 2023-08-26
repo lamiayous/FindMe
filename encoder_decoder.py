@@ -49,7 +49,7 @@ class decoder(nn.Module):
     )
 
     self.conv = nn.Sequential(
-        nn.ConvTranspose2d(8*out_channels, 8*out_channels, 3, padding=1), # (8, 8)
+        nn.ConvTranspose2d(8*out_channels, 8*out_channels, 3, padding=1), 
         nn.ReLU(),
         nn.Dropout(0.05),
         nn.ConvTranspose2d(8*out_channels, 4*out_channels, 3, padding=1, 

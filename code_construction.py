@@ -5,16 +5,6 @@ from torchvision.utils import save_image
 import numpy as np
 
 device = torch.device('cpu')
-
-# class dataloader():
-#     def __init__(self):
-#         test_dataset_path = './autoencoder/imgs/test'
-#         transform = transforms.Compose([transforms.Resize((128, 128)), transforms.ToTensor()])
-#         test_dataset = Datasets.ImageFolder(root = test_dataset_path, transform = transform)
-#         test_loader = torch.utils.data.DataLoader(dataset = test_dataset, batch_size = 4, shuffle=True)
-#         return test_loader
-
-
 def test_image_reconstruction(net, testloader, encoder):
         for batch in testloader:
             img, _ = batch

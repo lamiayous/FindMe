@@ -22,7 +22,6 @@ class ObjectDetector:
         if os.path.exists(img_filepath) == False:
             os.makedirs(img_filepath)
         
-
         #getting co-ordinates for bounding boxes
         img = Image.open(img_file)
         box = result.boxes[0]
@@ -32,3 +31,8 @@ class ObjectDetector:
         img_res = img.crop((x1, y1, x2, y2)) 
         img_res.show() 
         img.show()
+    
+    def object_exist(self, no_of_objects_detected):
+        if no_of_objects_detected == 0:
+            print("no object detected")
+            exit()
