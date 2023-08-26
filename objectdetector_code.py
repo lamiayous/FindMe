@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import os
 from PIL import Image
+import shutil
 
 class ObjectDetector:
     def __init__(self, weights="best.pt"):
@@ -18,7 +19,7 @@ class ObjectDetector:
         return object_name
     
     def crop_image(self, object_name, img_file, result):
-        img_filepath = "./imgs/test/" + object_name
+        img_filepath = "./imgs/test/" + object_name + '/'
         if os.path.exists(img_filepath) == False:
             os.makedirs(img_filepath)
         
@@ -27,10 +28,13 @@ class ObjectDetector:
         box = result.boxes[0]
         cords = box.xyxy[0].tolist()
         x1, y1, x2, y2 = cords
-        print("Coordinates:", x1)
         img_res = img.crop((x1, y1, x2, y2)) 
-        img_res.show() 
-        img.show()
+
+        #saving cropped image into correct directory
+        img_res.save("image.jpg")
+        current_loc = 'image.jpg'
+        new_loc = img_filepath + current_loc
+        shutil.copy(current_loc, new_loc)
     
     def object_exist(self, no_of_objects_detected):
         if no_of_objects_detected == 0:
