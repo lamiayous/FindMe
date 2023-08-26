@@ -7,8 +7,8 @@ import torch
 import torchvision.transforms as transforms 
 import torchvision.datasets as Datasets
 
-class encoder_code:
-    def __init__(self, trained_model, object_name):
+# class encoder_code:
+def encoder_code(trained_model):
     #data loader
         test_dataset_path = 'imgs/test/'
         transform = transforms.Compose([transforms.Resize((128, 128)), transforms.ToTensor()])
@@ -23,3 +23,5 @@ class encoder_code:
         model.eval()
         img_codes = test_image_reconstruction(net = model, testloader = test_loader, encoder = encoder())
         unique_code(img_codes)
+
+        return img_codes

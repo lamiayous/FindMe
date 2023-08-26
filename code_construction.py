@@ -19,11 +19,11 @@ def test_image_reconstruction(net, testloader, encoder):
 
 def unique_code(img_codes):
         codes_arr = torch.detach(img_codes).numpy()
-        no_imgs = len(codes_arr)
-        index = 0 
+        # no_imgs = len(codes_arr)
+        # index = 0 
 
-        while index < no_imgs:
-            img_no = str(index)
-            filename = ("TESTTTT" + img_no + ".txt")
-            np.savetxt(filename, codes_arr[index])
-            index += 1
+        # while index < no_imgs:
+        #     img_no = str(index)
+        #     filename = ("TESTTTT" + img_no + ".txt")
+        #     np.savetxt(filename, codes_arr[index])
+        #     index += 1

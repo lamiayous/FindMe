@@ -2,6 +2,8 @@ import argparse
 from ultralytics import YOLO
 from autoencoder_inference import encoder_code
 from objectdetector_code import ObjectDetector
+from code_construction import test_image_reconstruction
+from db import database_upload
 
 def main():
     model = YOLO("best.pt") #loading model
@@ -23,7 +25,10 @@ def main():
     object_detector.crop_image(object_name, img_file, result) #cropping detected image
 
     ####### Encoder #######
-    encoder_code("last.pth", object_name)
+    unique_code = encoder_code("last.pth")
+
+    ###### Database ######
+    database_upload(object_name, unique_code)
 
 if __name__ == "__main__":
     main()
