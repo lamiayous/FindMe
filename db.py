@@ -14,21 +14,15 @@ def database_upload(object_name, img_code):
     # Creating a database
     db = client["FindMe"]
     collection = db[currentdatetime]
-    img_code = img_code.tolist()
 
+    # converting tensor into a list
+    img_code = img_code.tolist()
     unique_code = []
     index = 0
 
     while index < len(img_code[0]):
         unique_code.append(img_code[0][index])
         index += 1
-    # # #Opening file with the unique code
-    # unique_code = {}
-    # # # fp = open("/Users/lamiayous/Projects/FindMe/autoencoder/code_img_0.txt", "r")
-
-    # # #storing code into "unique_code" array
-    # for code in img_code:
-    #     unique_code.append(code)
 
     index=0
 

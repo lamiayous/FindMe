@@ -2,11 +2,11 @@ from encoder_decoder import encoder
 from encoder_decoder import decoder
 from encoder_decoder import autoencoder
 from code_construction import test_image_reconstruction
-from code_construction import unique_code
 import torch
 import torchvision.transforms as transforms 
 import torchvision.datasets as Datasets
-
+import matplotlib.pyplot as plt
+import numpy as np
 # class encoder_code:
 def encoder_code(trained_model):
     #data loader
@@ -18,10 +18,19 @@ def encoder_code(trained_model):
         #load the model 
         FILE =trained_model
 
+
         model = autoencoder(encoder(), decoder())
         model.load_state_dict(torch.load(FILE))
         model.eval()
         img_codes = test_image_reconstruction(net = model, testloader = test_loader, encoder = encoder())
-        unique_code(img_codes)
+        codes_arr = torch.detach(img_codes).numpy()
+        no_imgs = len(codes_arr)
+        index = 0 
 
+        while index < no_imgs:
+            img_no = str(index)
+            filename = ("UniqueCode" + img_no + ".txt")
+            np.savetxt(filename, codes_arr[index])
+            index += 1
+        
         return img_codes
