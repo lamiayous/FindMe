@@ -23,14 +23,4 @@ def encoder_code(trained_model):
         model.load_state_dict(torch.load(FILE))
         model.eval()
         img_codes = test_image_reconstruction(net = model, testloader = test_loader, encoder = encoder())
-        codes_arr = torch.detach(img_codes).numpy()
-        no_imgs = len(codes_arr)
-        index = 0 
-
-        while index < no_imgs:
-            img_no = str(index)
-            filename = ("UniqueCode" + img_no + ".txt")
-            np.savetxt(filename, codes_arr[index])
-            index += 1
-        
         return img_codes
