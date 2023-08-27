@@ -35,8 +35,3 @@ class ObjectDetector:
         current_loc = 'image.jpg'
         new_loc = img_filepath + current_loc
         shutil.copy(current_loc, new_loc)
-    
-    def object_exist(self, no_of_objects_detected):
-        if no_of_objects_detected == 0:
-            print("no object detected")
-            exit()

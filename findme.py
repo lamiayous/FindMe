@@ -8,16 +8,19 @@ from db import database_upload
 def main():
     model = YOLO("best.pt") #loading model
 
-    #extractig image from command line
-
+    #extracting image from command line
     img_file = parser_img()
 
     ###### Object Detector #######
     object_detector = ObjectDetector()
-    out_object_detector = object_detector.run_inference(img_file)
-    object_detector.object_exist(out_object_detector)
+    out_object_detector = object_detector.run_inference(img_file) #runnning inference
+    no_object_detected = len(out_object_detector.boxes) #how many objects are detected
 
-    #extracting name of detected class
+    if no_object_detected == 0: 
+        print("No object has been detected, try another image")
+        exit()
+
+    #extracting name of detected object
     result = out_object_detector[0]
     object_name = object_detector.name_of_class(result, model) #getting object name
     object_detector.crop_image(object_name, img_file, result) #cropping detected image
