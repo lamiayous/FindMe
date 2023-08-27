@@ -2,7 +2,11 @@ import argparse
 
 def parser_img():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--image", type=str, default=None)
+    upload_img = parser.add_argument("--upload", type=str, default=None)
+    query_img = parser.add_argument("--query", type=str, default=None, nargs=2)
     args = parser.parse_args() 
-    img_file =args.image
-    return img_file
+    if upload_img != None:
+        upload = args.upload
+    if query_img != None:
+        query = args.query
+    return upload, query

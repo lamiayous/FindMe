@@ -30,7 +30,7 @@ class ObjectDetector:
         x1, y1, x2, y2 = cords
         img_res = img.crop((x1, y1, x2, y2)) 
 
-        #saving cropped image into correct directory
+        #saving cropped image into correct directory 
         img_res.save("image.jpg")
         current_loc = 'image.jpg'
         new_loc = img_filepath + current_loc
