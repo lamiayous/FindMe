@@ -1,4 +1,4 @@
-import argparse 
+from parse import parser_img
 from ultralytics import YOLO
 from autoencoder_inference import encoder_code
 from objectdetector_code import ObjectDetector
@@ -8,11 +8,9 @@ from db import database_upload
 def main():
     model = YOLO("best.pt") #loading model
 
-    #parse from command line 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--image", type=str, default=None)
-    args = parser.parse_args() 
-    img_file =args.image
+    #extractig image from command line
+
+    img_file = parser_img()
 
     ###### Object Detector #######
     object_detector = ObjectDetector()
