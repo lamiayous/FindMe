@@ -4,6 +4,7 @@ from autoencoder_inference import encoder_code
 from objectdetector_code import ObjectDetector
 from code_construction import test_image_reconstruction
 from db import database_upload
+from db import database_query
 
 def main():
     model = YOLO("best.pt") #loading model
@@ -41,6 +42,8 @@ def main():
             ###### Database ######
             if upload != None:
                 database_upload(object_name, unique_code) # (only in upload mode)
+            else:
+                database_query(unique_code)
 
 if __name__ == "__main__":
     main()
