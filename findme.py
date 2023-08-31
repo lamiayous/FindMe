@@ -40,10 +40,10 @@ def main():
             unique_code = encoder_code("last.pth")
 
             ###### Database ######
-            if upload != None:
-                database_upload(object_name, unique_code) # (only in upload mode)
-            else:
-                database_query(unique_code)
+            # if upload != None:
+            #     database_upload(object_name, unique_code) # (only in upload mode)
+            # else:
+            #     database_query(unique_code)
 
 if __name__ == "__main__":
     main()

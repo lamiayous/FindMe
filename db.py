@@ -1,6 +1,9 @@
 import pymongo
 from datetime import datetime
 
+def db_connection():
+    return
+
 def database_upload(object_name, img_code):
 
     #getting current day as this will be the name of our collection 
@@ -73,14 +76,13 @@ def database_query(img_code):
                 "index": "SemanticSearch",
                 "knnBeta": {
                     "vector": unique_code,
-                    "k": 2,
+                    "k": 1,
                     "path": "encoded"}
             }
         }
     ])
 
 
-    print("DONE?")
+    print(unique_code)
     for document in results:
-        print("DONE?")
         print(f'Time: {document["date and time"]},\nID: {document["_id"]}\n')
