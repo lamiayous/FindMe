@@ -5,8 +5,6 @@ from code_construction import image_code_extraction
 import torch
 import torchvision.transforms as transforms 
 import torchvision.datasets as Datasets
-import matplotlib.pyplot as plt
-import numpy as np
 
 def encoder_code(trained_model):
     test_dataset_path = 'imgs/test/'
