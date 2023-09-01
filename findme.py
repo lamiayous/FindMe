@@ -35,9 +35,9 @@ def main():
                 object_detector.crop_image(object_name, img_file, result) #cropping detected image
                 unique_code = encoder_code("last.pth")
                 database_upload(object_name, unique_code) # (only in upload mode)
-                
+
         if query != None:
-            result = out_object_detector[object] #result of detected object (dictionary)
+            result = out_object_detector[0] #result of detected object (dictionary)
             object_detector.crop_image(object_name, img_file, result) #cropping detected image and storing into file
             unique_code = encoder_code("last.pth") 
             database_query(unique_code)
