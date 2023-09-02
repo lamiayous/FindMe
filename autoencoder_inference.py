@@ -17,6 +17,6 @@ def encoder_code(trained_model):
     model = autoencoder(encoder(), decoder()) #calling autoencoder
     model.load_state_dict(torch.load(FILE)) #loading pretrained model
     model.eval() #this is to turn off all dropout layers
-    img_codes = image_code_extraction(net = model, testloader = test_loader) #extracting image codes
+    img_codes = image_code_extraction(net = model, testloader = test_loader) #extracting image code
 
     return img_codes

@@ -1,8 +1,6 @@
 import pymongo
 from datetime import datetime
-
-def db_connection():
-    return
+import numpy as np
 
 def database_upload(object_name, img_code):
 
@@ -28,6 +26,8 @@ def database_upload(object_name, img_code):
         index += 1
 
     index=0
+    unique_code = unique_code/np.linalg.norm(unique_code, axis=0)
+
 
     # Create data objects
     data_entry1 = {"vehicle": object_name, "encoded": [unique_code[index]], "date and time": localcurrentdateandtime }
