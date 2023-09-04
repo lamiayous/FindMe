@@ -8,8 +8,7 @@ from db import database_query
 def main():
     model = YOLO("best.pt") #loading model
 
-    #extracting image from command line
-    upload, query = parser_img()
+    upload, query = parser_img() # extracting image from command line
     
     #Checking which mode to use 
     if upload != None:

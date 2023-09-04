@@ -1,11 +1,35 @@
 import pymongo
 from datetime import datetime
 import numpy as np
+def tensor_to_list(img_code):
+     # converting tensor into a list
+    img_code = img_code.tolist()
+    unique_code = []
+
+    for index in range(len(img_code[0])):
+        unique_code.append(img_code[0][index])
+
+    unique_code = unique_code/np.linalg.norm(unique_code, axis=0)
+    return unique_code
+
+def semantic_search(unique_code, collection):
+    results = collection.aggregate([
+        {
+            '$search': {
+                "index": "SemanticSearch",
+                "knnBeta": {
+                    "vector": unique_code,
+                    "k": 1,
+                    "path": "encoded"}
+            }
+        }
+    ])
+    return results
+
 
 def database_upload(object_name, img_code):
 
     #getting current day as this will be the name of our collection 
-
     localcurrentdateandtime = datetime.now() # Get the local date and time
     currentdatetime = localcurrentdateandtime.strftime("%m/%d/%Y") # Get the current date from the local date and time
 
@@ -15,22 +39,11 @@ def database_upload(object_name, img_code):
     # Creating a database
     db = client["FindMe"]
     collection = db[currentdatetime]
-
-    # converting tensor into a list
-    img_code = img_code.tolist()
-    unique_code = []
-    index = 0
-
-    while index < len(img_code[0]):
-        unique_code.append(img_code[0][index])
-        index += 1
-
-    index=0
-    unique_code = unique_code/np.linalg.norm(unique_code, axis=0)
-
+    
+    unique_code = tensor_to_list(img_code)
 
     # Create data objects
-    data_entry1 = {"vehicle": object_name, "encoded": [unique_code[index]], "date and time": localcurrentdateandtime }
+    data_entry1 = {"vehicle": object_name, "encoded": [unique_code[0]], "date and time": localcurrentdateandtime }
 
     #adding the data object to the collection
     collection.insert_one(data_entry1)
@@ -38,18 +51,11 @@ def database_upload(object_name, img_code):
     #then get the object id of the entry that has just been entered
     query = {"date and time": localcurrentdateandtime}
     document = collection.find_one(query)
-
     object_id = document["_id"]
-    print(object_id)
-
-    #updating the index
-    index = 1
 
     #adding the rest of the unique code into the "encoded" array
-
-    while index < len(unique_code):
-        collection.update_one({"_id": object_id}, {"$push": {"encoded": unique_code[index]}})
-        index += 1
+    for index in range(len(unique_code)):
+        collection.update_one({"_id": object_id}, {"$push": {"encoded": unique_code[index+1]}}) #plus 1 because we already added the first value of the code
 
 def database_query(img_code):
     localcurrentdateandtime = datetime.now() # Get the local date and time
@@ -62,27 +68,9 @@ def database_query(img_code):
     db = client["FindMe"]
     collection = db[currentdatetime]
     
-    img_code = img_code.tolist()
-    unique_code = []
-    index = 0
+    unique_code = tensor_to_list(img_code)
 
-    while index < len(img_code[0]):
-        unique_code.append(img_code[0][index])
-        index += 1
+    results = semantic_search(unique_code, collection)
 
-    results = collection.aggregate([
-        {
-            '$search': {
-                "index": "SemanticSearch",
-                "knnBeta": {
-                    "vector": unique_code,
-                    "k": 1,
-                    "path": "encoded"}
-            }
-        }
-    ])
-
-
-    print(unique_code)
     for document in results:
         print(f'Time: {document["date and time"]},\nID: {document["_id"]}\n')

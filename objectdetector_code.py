@@ -3,6 +3,14 @@ import os
 from PIL import Image
 import shutil
 
+def bounding_box(result, img_file):
+    img = Image.open(img_file)
+    box = result.boxes[0]
+    cords = box.xyxy[0].tolist()
+    x1, y1, x2, y2 = cords
+    img_res = img.crop((x1, y1, x2, y2)) 
+    return img_res
+
 class ObjectDetector:
     def __init__(self, weights="best.pt"):
         model_pth = os.path.join("object_detector", weights)
@@ -24,11 +32,7 @@ class ObjectDetector:
             os.makedirs(img_filepath)
         
         #getting co-ordinates for bounding boxes
-        img = Image.open(img_file)
-        box = result.boxes[0]
-        cords = box.xyxy[0].tolist()
-        x1, y1, x2, y2 = cords
-        img_res = img.crop((x1, y1, x2, y2)) 
+        img_res = bounding_box(result, img_file)
 
         #saving cropped image into correct directory 
         img_res.save("image.jpg")
