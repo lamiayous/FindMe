@@ -33,9 +33,9 @@ If we want to query an image, MongoDb takes the "unqiue code" and applies vector
   }
 </style>
 <div id="box">
-<p align="center">
-<img width="376" alt="Screenshot 2023-09-13 at 17 02 01" src="https://github.com/lamiayous/FindMe/assets/124199862/06749e30-1b72-42da-96e4-31c68b3d752b">
-</p>
+ <p align="center">
+ <img width="376" alt="Screenshot 2023-09-13 at 17 02 01" src="https://github.com/lamiayous/FindMe/assets/124199862/06749e30-1b72-42da-96e4-31c68b3d752b">
+ </p>
 </div>
 
 ### Object Detector
