@@ -36,12 +36,13 @@ We crop this image to contain only the detected image.
 <p align="center">
 
 ### Encoder
-The encoder was first trained by making adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct the image. The following figure shows the network architecture for the FindMe encoder.
-
+The encoder was first trained by making adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct the image. 
 
 <p align="center">
  <img width="613" alt="image" src="https://github.com/lamiayous/FindMe/assets/124199862/ec69bb4f-bc44-4732-9238-c13da94f3e13">
 <p align="center">
+                                            Encoder
+
 
 
 ### Database
