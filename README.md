@@ -39,7 +39,7 @@ We crop this image to contain only the detected image.
 The encoder was first trained by making adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct the image. 
 
 <p align="center">
- <img width="613" alt="image" src="https://github.com/lamiayous/FindMe/assets/124199862/ec69bb4f-bc44-4732-9238-c13da94f3e13">
+ <img width="1061" alt="Screenshot 2023-09-14 at 18 21 24" src="https://github.com/lamiayous/FindMe/assets/124199862/cc88257e-6bc2-4762-b92a-c1bd9b1c7178">
 <p align="center">
                                             Encoder
 
