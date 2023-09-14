@@ -29,14 +29,20 @@ FindMe uses the YOLOv8 object detector for the detecting part of the project. We
 
 This object detector returns many things, but FindMe only reqires three things, namely, the number of objects detected, the name of the object detected and the bounding box co-ordinate of where in the image the object was detected.
 
-<p align="center">
- <img width="386" alt="Screenshot 2023-09-13 at 21 11 57" src="https://github.com/lamiayous/FindMe/assets/124199862/4a68da7c-2338-410b-91dd-503e01fe9cb2">
-</p>
-
 We crop this image to contain only the detected image.
 
+<p align="center">
+ <img width="386" alt="Screenshot 2023-09-13 at 21 11 57" src="https://github.com/lamiayous/FindMe/assets/124199862/4a68da7c-2338-410b-91dd-503e01fe9cb2">
+<p align="center">
+
 ### Encoder
-...
+The encoder was first trained by making adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct the image. The following figure shows the network architecture for the FindMe encoder.
+
+
+<p align="center">
+ <img width="613" alt="image" src="https://github.com/lamiayous/FindMe/assets/124199862/ec69bb4f-bc44-4732-9238-c13da94f3e13">
+<p align="center">
+
 
 ### Database
 ...
