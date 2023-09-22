@@ -36,7 +36,11 @@ We crop this image to contain only the detected image.
 <p align="center">
 
 ### Encoder
-The encoder was first trained by making adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct the image. 
+The encoder was first trained by adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct an image. 
+
+Once trained, the encoder is used to generate the "unique codes"
+
+The image below shows how the image is passed through the encoder.
 
 <p align="center">
  <img width="972" alt="Screenshot 2023-09-14 at 23 45 07" src="https://github.com/lamiayous/FindMe/assets/124199862/221855f1-fc8a-41ad-aa92-c35005d60d65">
@@ -47,6 +51,6 @@ The encoder was first trained by making adding a decoder, essentially making an 
 
 
 ### Database
-...
+The database used was MongoDB. With MongoDB, semantic search can be easily implemented and thus makes the query part of the project easy.
 
 ## In Practice
