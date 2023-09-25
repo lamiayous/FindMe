@@ -31,10 +31,6 @@ This object detector returns many things, but FindMe only reqires three things, 
 
 We crop this image to contain only the detected image.
 
-<p align="center">
-<img width="386" alt="Screenshot 2023-09-13 at 21 11 57" src="https://github.com/lamiayous/FindMe/assets/124199862/4a68da7c-2338-410b-91dd-503e01fe9cb2">
-<p align="center">
-
 ### Encoder
 The encoder was first trained by adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct an image. 
 
