@@ -51,4 +51,7 @@ The database used was MongoDB. With MongoDB, semantic search can be easily imple
 ## In Practice
 
 ### Querying an Image:
-$ python findme.py --query car car.img
+```console
+foo@bar:~$ python findme.py --query car car.img
+foo
+```
