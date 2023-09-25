@@ -14,7 +14,7 @@ For now, FindMe takes an image from the user and passes it to the YOLOv8 object 
 If we want to upload an image to a database, the "unique code", name of object detected and other relevant information is added into the database. I used MongoDb for this project.
 
 <p align="center">
-![system_arch](https://github.com/lamiayous/FindMe/assets/124199862/5b8a20bb-d8af-45b2-8b49-00ef78f7bb51)
+<img width="812" alt="system_arch" src="https://github.com/lamiayous/FindMe/assets/124199862/deb448f8-5526-4dcf-8183-a7756a2a52c4">
 </p>
 
 If we want to query an image, MongoDb takes the "unqiue code" and applies vector search using K-Nearest Neighbour algorithm and calulcating using dotproduct to check the similiarty of the query image with the other images in the database.
