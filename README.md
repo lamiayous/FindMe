@@ -32,6 +32,7 @@ This object detector returns many things, but FindMe only reqires three things, 
 We crop this image to contain only the detected image.
 
 ### Encoder
+The Encoder used in this project also comes from another repository of mine (https://github.com/lamiayous/autoencoder). However, FindMe uses the encoder from the autoencoder to extract a "unique code".
 The encoder was first trained by adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct an image. 
 
 Once trained, the encoder is used to generate the "unique codes"
@@ -44,9 +45,10 @@ The image below shows how the image is passed through the encoder.
                                             Encoder
 
 
-
-
 ### Database
 The database used was MongoDB. With MongoDB, semantic search can be easily implemented and thus makes the query part of the project easy.
 
 ## In Practice
+
+### Querying an Image:
+$ python findme.py --query car car.img
