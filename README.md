@@ -24,7 +24,7 @@ If we want to query an image, MongoDb takes the "unqiue code" and applies vector
 FindMe uses the YOLOv8 object detector for the detecting part of the project. We trained the model using thousands of training images of cars.
 
 <p align="center">
- <img width="265" alt="Screenshot 2023-09-13 at 21 10 14" src="https://github.com/lamiayous/FindMe/assets/124199862/ac4f5f9d-7099-4c82-bf0c-78802e3f731a">
+ <img width="816" alt="obj_det" src="https://github.com/lamiayous/FindMe/assets/124199862/fdfc27d2-ed04-468a-b77a-b67fff71b098">
 </p>
 
 This object detector returns many things, but FindMe only reqires three things, namely, the number of objects detected, the name of the object detected and the bounding box co-ordinate of where in the image the object was detected.
@@ -32,7 +32,7 @@ This object detector returns many things, but FindMe only reqires three things, 
 We crop this image to contain only the detected image.
 
 <p align="center">
- <img width="386" alt="Screenshot 2023-09-13 at 21 11 57" src="https://github.com/lamiayous/FindMe/assets/124199862/4a68da7c-2338-410b-91dd-503e01fe9cb2">
+<img width="386" alt="Screenshot 2023-09-13 at 21 11 57" src="https://github.com/lamiayous/FindMe/assets/124199862/4a68da7c-2338-410b-91dd-503e01fe9cb2">
 <p align="center">
 
 ### Encoder
@@ -43,7 +43,7 @@ Once trained, the encoder is used to generate the "unique codes"
 The image below shows how the image is passed through the encoder.
 
 <p align="center">
- <img width="972" alt="Screenshot 2023-09-14 at 23 45 07" src="https://github.com/lamiayous/FindMe/assets/124199862/221855f1-fc8a-41ad-aa92-c35005d60d65">
+<img width="671" alt="img_FindMe" src="https://github.com/lamiayous/FindMe/assets/124199862/ede24929-504e-4fe5-965a-f87b417aa606">
 <p align="center">
                                             Encoder
 
