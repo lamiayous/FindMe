@@ -74,12 +74,12 @@ When we give FindMe to look for similiar cars to a black dodge, it will return t
 <p align="center">
                                   Returned image (1/3)
 <p align="center">
- img width="300" alt="blk" src="https://github.com/lamiayous/FindMe/assets/124199862/9b179624-2647-4d09-af24-1b127a9591b8"
+ <img width="300" alt="blk" src="https://github.com/lamiayous/FindMe/assets/124199862/9b179624-2647-4d09-af24-1b127a9591b8"
 <p align="center">
                                  Returned image (2/3)
  
 <p align="center">
- img width="300" alt="yellow" src="https://github.com/lamiayous/FindMe/assets/124199862/39b90025-5d76-4cbd-9379-64758397d353"
+ <img width="300" alt="yellow" src="https://github.com/lamiayous/FindMe/assets/124199862/39b90025-5d76-4cbd-9379-64758397d353"
 <p align="center">
                                  Returned image (3/3)
  
