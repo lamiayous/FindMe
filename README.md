@@ -65,22 +65,21 @@ When we give FindMe to look for similiar cars to a black dodge, it will return t
 
 
 <p align="center">
- <img width="671" alt="black" src="https://github.com/lamiayous/FindMe/assets/124199862/7f92bcea-6e56-49c3-a8a6-3eccce7641fa">
-
+ <img width="300" alt="black" src="https://github.com/lamiayous/FindMe/assets/124199862/7f92bcea-6e56-49c3-a8a6-3eccce7641fa">
 <p align="center">
                                    Query Image
 
 <p align="center">
- ![super_car](https://github.com/lamiayous/FindMe/assets/124199862/9d5177d3-dc51-47aa-b357-a5ba3c6f43fc)
+ <img width="300" alt="super_car" src="https://github.com/lamiayous/FindMe/assets/124199862/9d5177d3-dc51-47aa-b357-a5ba3c6f43fc">
 <p align="center">
                                   Returned image (1/3)
 <p align="center">
- ![blk](https://github.com/lamiayous/FindMe/assets/124199862/9b179624-2647-4d09-af24-1b127a9591b8)
+ img width="300" alt="blk" src="https://github.com/lamiayous/FindMe/assets/124199862/9b179624-2647-4d09-af24-1b127a9591b8"
 <p align="center">
                                  Returned image (2/3)
  
 <p align="center">
- ![yellow](https://github.com/lamiayous/FindMe/assets/124199862/39b90025-5d76-4cbd-9379-64758397d353)
+ img width="300" alt="yellow" src="https://github.com/lamiayous/FindMe/assets/124199862/39b90025-5d76-4cbd-9379-64758397d353"
 <p align="center">
                                  Returned image (3/3)
  
