@@ -52,6 +52,34 @@ The database used was MongoDB. With MongoDB, semantic search can be easily imple
 
 ### Querying an Image:
 ```console
-foo@bar:~$ python findme.py --query car car.img
-foo
+$ python findme.py --query car car.img
 ```
+- findme.py: Running the project
+- --query: Telling FindMe to query an image from a database
+- car: Telling FindMe what kind of object looking for
+- car.img: Showing FindMe an example of an image (This is the example search part of the Project)
+
+For now, FindMe output the ObjectId for the top 3 images in the database that look like car.jpg
+In the following example, there are about 15 images of cars in the database, None of which is a black dodge car.
+When we give FindMe to look for similiar cars to a black dodge, it will return the following images.
+
+
+<p align="center">
+ ![black_car](https://github.com/lamiayous/FindMe/assets/124199862/7f92bcea-6e56-49c3-a8a6-3eccce7641fa)
+<p align="center">
+                                   Query Image
+
+<p align="center">
+ ![super_car](https://github.com/lamiayous/FindMe/assets/124199862/9d5177d3-dc51-47aa-b357-a5ba3c6f43fc)
+<p align="center">
+                                  Returned image (1/3)
+<p align="center">
+ ![blk](https://github.com/lamiayous/FindMe/assets/124199862/9b179624-2647-4d09-af24-1b127a9591b8)
+<p align="center">
+                                 Returned image (2/3)
+ 
+<p align="center">
+ ![yellow](https://github.com/lamiayous/FindMe/assets/124199862/39b90025-5d76-4cbd-9379-64758397d353)
+<p align="center">
+                                 Returned image (3/3)
+ 
