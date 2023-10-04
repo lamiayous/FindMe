@@ -65,7 +65,8 @@ When we give FindMe to look for similiar cars to a black dodge, it will return t
 
 
 <p align="center">
- ![black_car](https://github.com/lamiayous/FindMe/assets/124199862/7f92bcea-6e56-49c3-a8a6-3eccce7641fa)
+ <img width="671" alt="black" src="https://github.com/lamiayous/FindMe/assets/124199862/7f92bcea-6e56-49c3-a8a6-3eccce7641fa">
+
 <p align="center">
                                    Query Image
 
