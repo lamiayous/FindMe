@@ -1,23 +1,20 @@
 # FindMe
-Find me is a content based search and retrieval project. You can query images from a database by uploading images that look like the images you are looking for. FindMe returns images most relevant to your search. In future, this will be used to query certain object the user is looking for from a video stream. However right now, FindMe can only retrieve car images from an example database.
+Find me is a content-based search and retrieval project. FindMe can query images from a database by using example-based search. All that is needed to do, is give FindMe an example of an image and it returns images most relevant to the search. In future, this will be used to query certain object the user is looking for from a video stream. However, for now, FindMe can only retrieve car images from an example database.
 
 ## Download Repository
 ...
 
-## Querying Car Image
-...
-
 ## How it Works
 
-For now, FindMe takes an image from the user and passes it to the YOLOv8 object detector. This object detector returns the name of the object detected and the bounding boxes of where in the image it was detected. FindMe crops the image so to only contain the detected image and passes this to an encoder. The encoder generates a embedding of 256 dimensions. This basically extracts the most important features of the image. From the encoder we get a "unqiue code" consisting of 256 numbers for each slightly different image the user inputs. 
+For now, FindMe takes an image from the user and passes it to the YOLOv8 object detector. This object detector returns the name of the object detected and the bounding boxes of where in the image it was detected. FindMe crops the image so that it only contain the detected image and passes this to an encoder. The encoder generates an embedding of 256 dimensions. This extracts the most important features of the image. From the encoder, we get a "unqiue code" consisting of 256 numbers for each different image the user inputs. 
 
-If we want to upload an image to a database, the "unique code", name of object detected and other relevant information is added into the database. I used MongoDb for this project.
+For indexing an image to a database, the "unique code", name of object detected and other relevant information is added into the database (MongoDB was used).
 
 <p align="center">
 <img width="812" alt="system_arch" src="https://github.com/lamiayous/FindMe/assets/124199862/deb448f8-5526-4dcf-8183-a7756a2a52c4">
 </p>
 
-If we want to query an image, MongoDb takes the "unqiue code" and applies vector search using K-Nearest Neighbour algorithm and calulcating using dotproduct to check the similiarty of the query image with the other images in the database.
+For querying an image, MongoDb takes the "unqiue code" and applies vector search using K-Nearest Neighbour algorithm and calculating using dotproduct to check the similiarty of the query image with the other images in the database.
 
 ### Object Detector
 
@@ -32,7 +29,7 @@ This object detector returns many things, but FindMe only reqires three things, 
 We crop this image to contain only the detected image.
 
 ### Encoder
-The Encoder used in this project also comes from another repository of mine (https://github.com/lamiayous/autoencoder). However, FindMe uses the encoder from the autoencoder to extract a "unique code".
+The Encoder used in this project also comes from another repository (https://github.com/lamiayous/autoencoder). However, FindMe uses the encoder from the autoencoder to extract a "unique code" and doesn't use the decoder .
 The encoder was first trained by adding a decoder, essentially making an autoencoder, to reconstruct the original image. Fundamentally, the encoder returns a 256 dimension feature space, the decoder takes those number and tries recontrsuct an image. 
 
 Once trained, the encoder is used to generate the "unique codes"
